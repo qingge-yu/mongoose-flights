@@ -13,7 +13,13 @@ function index(req, res) {
 }
 
 function newFlight(req, res) {
-    res.render('flights/new', { title: 'Add Flights' })
+    const newFlight = new Flight();
+    // Obtain the default date
+    const dt = newFlight.departs;
+    // Format the date for the value attribute of the input
+    let departsDate = `${dt.getFullYear()}-${(dt.getMonth() + 1).toString().padStart(2, '0')}`;
+    departsDate += `-${dt.getDate().toString().padStart(2, '0')}T${dt.toTimeString().slice(0, 5)}`;
+    res.render('flights/new', { departsDate, title: 'Add Flights' });
 }
 
 function create(req, res) {
