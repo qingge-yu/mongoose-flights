@@ -1,3 +1,32 @@
 <%- include('../partials/header') %>
-
-    <%- include('../paritals/footer') %>
+    <table id="show-page">
+        <thead>
+            <tr>
+                <th>Airline</th>
+                <th>Airport</th>
+                <th>Flight No.</th>
+                <th>Departs</th>
+                <th>Arrival</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <%= flight.airline %>
+                </td>
+                <td>
+                    <%= flight.airport %>
+                </td>
+                <td>
+                    <%= flight.flightNo %>
+                </td>
+                <td>
+                    <%= flight.departs %>
+                </td>
+                <td>
+                    <%= flight.arrival %>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <%- include('../partials/footer') %>
