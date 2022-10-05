@@ -44,7 +44,7 @@
         <input type="date" name="arrival">
         <input type="submit" value="Add Destination">
     </form>
-
+    <br>
     <% if(flight.destinations.length) { %>
         <table>
             <thead>
@@ -69,4 +69,7 @@
         <% } else { %>
             <h5>No Destination Yet</h5>
             <% } %>
+
+                <br><br>
+                <a href="/tickets/new">Add Ticket to Flight</a>
                 <%- include('../partials/footer') %>
