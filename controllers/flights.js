@@ -41,5 +41,6 @@ function show(req, res) {
         Ticket.find({ flight: flight._id }, function (err, tickets) {
             res.render('flights/show', { title: 'Flight Details', flight, tickets })
         })
+        res.render
     })
 }
