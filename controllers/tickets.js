@@ -7,15 +7,21 @@ module.exports = {
 }
 
 function newTicket(req, res) {
-    res.render('tickets/new', { id: req.params.id, title: 'Add a new ticket' })
+    res.render('tickets/new', { id: req.params.id, title: 'Add New Ticket' })
 }
 
 function create(req, res) {
-    Ticket.create(req.body, function (err, ticket) {
-        res.redirect('/tickets/new')
+    req.body.flight = req.params.id
+    const ticket = new Ticket(req.body)
+    ticket.save(function (err) {
+        console.log(err)
+        res.redirect(`/flights`)
     })
 }
 
-// function addToFlight(req, res) {
-
-// }
+// Flight.findById(req.params.id, function (err, flight) {
+//     Ticket.find({ flight: flight._id }, function (err, tickets) {
+//         res.render('flights/show', { title: 'Flight Details', flight, tickets })
+//     })
+//     res.render
+// })
